@@ -1,0 +1,24 @@
+public class NumberOfOneBits {
+
+    public static int hammingWeight(int n) {
+        int count = 0;
+        
+        while (n != 0) {
+            // n & (n - 1) flips the least significant '1' bit to '0'
+            n = n & (n - 1); 
+            count++;
+        }
+        
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int num1 = 11; // Binary: 1011 (Contains 3 ones)
+        int num2 = 128; // Binary: 10000000 (Contains 1 one)
+        int num3 = -3; // Binary: 11111111111111111111111111111101 (Contains 31 ones)
+        
+        System.out.println("1-bits in " + num1 + ": " + hammingWeight(num1));
+        System.out.println("1-bits in " + num2 + ": " + hammingWeight(num2));
+        System.out.println("1-bits in " + num3 + ": " + hammingWeight(num3));
+    }
+}
