@@ -1,0 +1,26 @@
+public class SumOfDigits {
+
+    public static int addDigits(int number) {
+        int sum = 0;
+        
+        // Convert to positive to handle negative numbers correctly
+        number = Math.abs(number); 
+        
+        while (number > 0) {
+            // Extract the last digit and add it to the sum
+            sum += number % 10; 
+            // Remove the last digit from the number
+            number /= 10; 
+        }
+        
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int num1 = 12345;
+        int num2 = -987;
+        
+        System.out.println("Sum of digits for " + num1 + " is: " + addDigits(num1));
+        System.out.println("Sum of digits for " + num2 + " is: " + addDigits(num2));
+    }
+}
